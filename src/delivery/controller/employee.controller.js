@@ -13,13 +13,13 @@ const EmployeeController = () => {
 
     const listEmployee = (req,res) => {
         const employees = employeeService.findAllEmployee();
-        res.json(Response().succesMessage(res.statusCode, 'SUCCESS', employees));
+        res.json(Response().successMessage(res.statusCode, 'SUCCESS', employees));
     }
 
     const getEmployee = (req,res) => {
         const id = req.params.id;
         const employee = employeeService.findAllEmployee(+id);
-        res.json(Response().succesMessage(res.statusCode, 'SUCCESS', employee));
+        res.json(Response().successMessage(res.statusCode, 'SUCCESS', employee));
     }
 
     return {

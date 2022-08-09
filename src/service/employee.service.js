@@ -1,8 +1,8 @@
 // Usecase/ Service itu bussiness logic semacam nama ngga boleh kosong dll
 // Mirip kayak validasi
 
-const EmployeeService = (EmployeeRepository) => { //yg membungkus ini biasanya menggunakan PascalCase
-    const { create, list, getById } = EmployeeRepository();
+const EmployeeService = (employeeRepository) => { //yg membungkus ini biasanya menggunakan PascalCase
+    const { create, list, getById } = employeeRepository;
 
     //Kalo ngga ada kondisi bisa disimpelkan begini
     const registerEmployee = (newEmployee) => create(newEmployee);

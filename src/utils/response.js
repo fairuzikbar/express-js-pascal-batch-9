@@ -1,5 +1,5 @@
 const Response = () => {
-    const succesMessage = (code, msg, data) => ({
+    const successMessage = (code, msg, data) => ({
         code: code,
         msg: msg,
         data: data
@@ -11,7 +11,7 @@ const Response = () => {
     });
 
     return {
-        succesMessage, errorMessage
+        successMessage, errorMessage
     }
 }
 
