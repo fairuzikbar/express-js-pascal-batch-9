@@ -22,8 +22,29 @@ const EmployeeController = () => {
         res.json(Response().successMessage(res.statusCode, 'SUCCESS', employee));
     }
 
+    //Kalo mau pake id
+    const updateEmployee = (req, res) => {
+        const id = req.params.id;
+        const payload = req.body;
+        const upEmployee = employeeService.editEmployee(payload, +id);
+        res.json(Response().successMessage(res.statusCode, 'SUCCESS', upEmployee))
+    }
+
+    //Kalo mau tanpa id
+    // const updateEmployee = (req, res) => {
+    //     const payload = req.body;
+    //     const upEmployee = employeeService.editEmployee(payload);
+    //     res.json(Response().successMessage(res.statusCode, 'SUCCESS', upEmployee))
+    // }
+
+    const deleteEmployeeData = (req,res) => {
+        const id = req.params.id;
+        const employee = employeeService.deleteEmployee(+id);
+        res.json(Response().successMessage(res.statusCode, 'SUCCESS', employee));
+    }
+
     return {
-        createEmployee, listEmployee, getEmployee
+        createEmployee, listEmployee, getEmployee, updateEmployee, deleteEmployeeData
     }
 }
 

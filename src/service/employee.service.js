@@ -2,12 +2,15 @@
 // Mirip kayak validasi
 
 const EmployeeService = (employeeRepository) => { //yg membungkus ini biasanya menggunakan PascalCase
-    const { create, list, getById } = employeeRepository;
+    const { create, list, getById, update, deleted } = employeeRepository;
 
     //Kalo ngga ada kondisi bisa disimpelkan begini
     const registerEmployee = (newEmployee) => create(newEmployee);
     const findAllEmployee = () => list();
     const findEmployeeById = (id) => getById(id);
+    const editEmployee = (upEmployee, id) => update(upEmployee, id); //Kalo mau pake id
+    // const editEmployee = (upEmployee, id) => update(upEmployee, id); //Kalo mau tanpa id
+    const deleteEmployee = (id) => deleted(id);
 
     //Kalo ada kondisi yg mau dituliskan, di sini
     // const registerEmployee = (newEmployee) => {
@@ -23,7 +26,7 @@ const EmployeeService = (employeeRepository) => { //yg membungkus ini biasanya m
     // }
 
     return {
-        registerEmployee, findAllEmployee, findEmployeeById
+        registerEmployee, findAllEmployee, findEmployeeById, editEmployee, deleteEmployee
     }
 }
 
