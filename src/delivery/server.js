@@ -1,6 +1,8 @@
 const express = require('express');
 const EmployeeRoute = require('./routes/employee.route');
+const config = require('../config/config')
 require('dotenv').config();
+const { port, host } = config();
 
 const Server = () => {
     const app = express();
@@ -10,8 +12,8 @@ const Server = () => {
         EmployeeRoute(app)
     }
 
-    app.listen(process.env.APP_PORT, () => {
-        console.info(`App server running on port ${process.env.APP_PORT}`)
+    app.listen(port, host, () => {
+        console.info(`App server running on port ${port}`)
     })
 
     return {

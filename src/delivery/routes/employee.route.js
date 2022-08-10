@@ -6,7 +6,8 @@ const EmployeeRoute = (app) => {
     app.get(Routes().GET_EMPLOYEE_LIST, EmployeeController().listEmployee);
     app.get(Routes().GET_EMPLOYEE, EmployeeController().getEmployee);
     app.put(Routes().PUT_EMPLOYEE, EmployeeController().updateEmployee);
-    app.delete(Routes().DELETE_EMPLOYEE, EmployeeController().deleteEmployeeData)
+    app.delete(Routes().DELETE_EMPLOYEE, EmployeeController().deleteEmployeeData);
+    app.get(Routes().SEARCH_EMPLOYEE, EmployeeController().searchEmployee);
 }
 
 module.exports = EmployeeRoute;
