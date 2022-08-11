@@ -54,7 +54,7 @@ const UsersService = (usersRepository) => { //yg membungkus ini biasanya menggun
         try {
             return await getUserByUsernamePassword(username, password)
         } catch (error) {
-            return err.message
+            return error.message
         }
     }
 

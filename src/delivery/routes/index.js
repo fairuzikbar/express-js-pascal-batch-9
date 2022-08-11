@@ -10,6 +10,9 @@ const UsersRepository = require('../../repository/users.repository');
 const UsersService = require('../../service/users.service');
 const usersRouter = require('./users.route');
 const UsersController = require('../controller/users.controller');
+const AuthenticationService = require('../../service/authentication.service');
+const AuthenticationController = require('../controller/authentication.controller');
+const authRouter = require('./auth.route');
 
 const employeeService = (req, res, next) => {
     req.service = EmployeeService(EmployeeRepository(db));
@@ -21,8 +24,15 @@ const usersService = (req, res, next) => {
     next()
 }
 
+const authService = (req, res, next) => {
+    req.service = AuthenticationService(UsersService(UsersRepository(db)));
+    next()
+}
+
 router.use('/employee', employeeService, employeeRouter(EmployeeController));
 
 router.use('/user', usersService, usersRouter(UsersController));
+
+router.use('/auth', authService, authRouter(AuthenticationController));
 
 module.exports = router;
