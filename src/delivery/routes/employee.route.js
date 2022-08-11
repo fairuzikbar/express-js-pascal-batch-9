@@ -1,13 +1,15 @@
 const Routes = require('../../config/app.routes')
+const express = require('express');
+const router = express.Router();
 const EmployeeController = require('../controller/employee.controller')
 
-const EmployeeRoute = (app) => {
-    app.post(Routes().POST_EMPLOYEE, EmployeeController().createEmployee);
-    app.get(Routes().GET_EMPLOYEE_LIST, EmployeeController().listEmployee);
-    app.get(Routes().GET_EMPLOYEE, EmployeeController().getEmployee);
-    app.put(Routes().PUT_EMPLOYEE, EmployeeController().updateEmployee);
-    app.delete(Routes().DELETE_EMPLOYEE, EmployeeController().deleteEmployeeData);
-    app.get(Routes().SEARCH_EMPLOYEE, EmployeeController().searchEmployee);
+const EmployeeRoute = () => {
+    router.post('/', EmployeeController().createEmployee);
+    router.get('/', EmployeeController().listEmployee);
+    router.get('/:id', EmployeeController().getEmployee);
+    router.put('/', EmployeeController().updateEmployee);
+    router.delete('/:id', EmployeeController().deleteEmployeeData);
+    router.get('/', EmployeeController().searchEmployee);
 }
 
 module.exports = EmployeeRoute;

@@ -1,4 +1,6 @@
 const Routes = () => { //Penulisan query, routes, biasakan huruf besar
+    const ERROR_PATH = '/error'
+
     const POST_EMPLOYEE = '/employee';
     const GET_EMPLOYEE_LIST = '/employee';
     const GET_EMPLOYEE = '/employee/:id';
@@ -8,7 +10,7 @@ const Routes = () => { //Penulisan query, routes, biasakan huruf besar
     const SEARCH_EMPLOYEE = '/employee?search='
 
     return {
-        POST_EMPLOYEE, GET_EMPLOYEE_LIST, GET_EMPLOYEE, PUT_EMPLOYEE, DELETE_EMPLOYEE, SEARCH_EMPLOYEE
+        POST_EMPLOYEE, GET_EMPLOYEE_LIST, GET_EMPLOYEE, PUT_EMPLOYEE, DELETE_EMPLOYEE, SEARCH_EMPLOYEE, ERROR_PATH
     }
 }
 
