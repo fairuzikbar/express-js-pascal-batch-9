@@ -13,8 +13,8 @@ const Server = () => {
     app.use(jsonMiddleware);
     app.use(appRoute);
     app.use(errorRoute);
-    app.use(noRoute);
     app.use(errorMiddleware);
+    app.use(noRoute);
 
     app.listen(port, host, () => {
         console.info(`App server running on port ${port}`)
