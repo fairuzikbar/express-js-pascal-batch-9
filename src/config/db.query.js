@@ -7,14 +7,8 @@ const DbQuery = () => {
     OR last_name ILIKE $1 OR dob ILIKE $1 OR pob ILIKE $1 OR address ILIKE $1`;
     const SELECT_BIODATA_ID = `SELECT * FROM biodata WHERE id = $1`;
 
-    const SELECT_USERS_LIST = `SELECT id, username, email FROM users ORDER BY id DESC`;
-    const CREATE_USERS = `INSERT INTO users(username, email, password) VALUES ($1, $2, $3) RETURNING *`;
-    const SELECT_USERS_ID = `SELECT username, email FROM users WHERE id = $1`;
-
     return {
-        SELECT_BIODATA_LIST, INSERT_BIODATA, UPDATE_BIODATA, DELETE_BIODATA, SEARCH_BIODATA, SELECT_BIODATA_ID,
-
-        SELECT_USERS_LIST, CREATE_USERS, SELECT_USERS_ID
+        SELECT_BIODATA_LIST, INSERT_BIODATA, UPDATE_BIODATA, DELETE_BIODATA, SEARCH_BIODATA, SELECT_BIODATA_ID
     }
   };
 
