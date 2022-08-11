@@ -9,7 +9,7 @@ const EmployeeController = () => {
     const createEmployee = async (req, res) => {
         try {
             const payload = req.body;
-            const newEmployee = await employeeService.registerEmployee(payload);
+            const newEmployee = await req.service.registerEmployee(payload);
             res.json(Response().successMessage(res.statusCode, 'SUCCESS', newEmployee))
         } catch (error) {
             res.json(Response().errorMessage('XX', 'gagal'))
@@ -18,7 +18,7 @@ const EmployeeController = () => {
 
     const listEmployee = async (req,res) => {
         try {
-            const employees = await employeeService.findAllEmployee();
+            const employees = await req.service.findAllEmployee();
             res.json(Response().successMessage(res.statusCode, 'SUCCESS', employees));
         } catch (error) {
             res.json(Response().errorMessage('XX', 'gagal'))
@@ -28,7 +28,7 @@ const EmployeeController = () => {
     const getEmployee = async (req,res) => {
         try {
             const id = req.params.id;
-            const employee = await employeeService.findEmployeeById(+id);
+            const employee = await req.service.findEmployeeById(+id);
             res.json(Response().successMessage(res.statusCode, 'SUCCESS', employee));
         } catch (error) {
             res.json(Response().errorMessage('XX', 'gagal'))
@@ -38,7 +38,7 @@ const EmployeeController = () => {
     const searchEmployee = async (req,res) => {
         try {
             const search = req.body;
-            const employee = await employeeService.findEmployee(search);
+            const employee = await req.service.findEmployee(search);
             res.json(Response().successMessage(res.statusCode, 'SUCCESS', employee));
         } catch (error) {
             res.json(Response().errorMessage('XX', 'gagal'))
@@ -57,7 +57,7 @@ const EmployeeController = () => {
     const updateEmployee = async (req, res) => {
         try {
             const payload = req.body;
-            const upEmployee = await employeeService.editEmployee(payload);
+            const upEmployee = await req.service.editEmployee(payload);
             res.json(Response().successMessage(res.statusCode, 'SUCCESS', upEmployee))
         } catch (error) {
             res.json(Response().errorMessage('XX', 'gagal'))
@@ -66,7 +66,7 @@ const EmployeeController = () => {
 
     const deleteEmployeeData = async (req,res) => {
         const id = req.params.id;
-        const employee = await employeeService.deleteEmployee(+id);
+        const employee = await req.service.deleteEmployee(+id);
         res.json(Response().successMessage(res.statusCode, 'SUCCESS', employee));
     }
 
